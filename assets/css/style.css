@@ -1,0 +1,263 @@
+/* font imports */
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cantarell|Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+
+/* General Formatting */
+.header-text {
+    color: white;
+    text-decoration: none;
+    font-family: 'Cantarell', sans-serif;
+}
+
+.paragraph-text {
+    color: white;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    size: 20px;
+}
+
+.title {
+    font-size: 36px;
+}
+
+#content {
+    padding: 40px; 
+}
+
+body {
+    margin: 0px;
+    background-color: #121212;
+}
+
+#main-container {
+    align-self: center;
+    width: 80%;
+    height: 100%;
+    background-color: #1e1e1e;
+    margin: auto;
+    border-radius: 50px;
+    margin-top: 30px; /* Add a top margin to avoid content overlay */
+}
+
+form input, form textarea, form select{
+    background-color: #121212;
+    color: white;
+    border:none;
+    border-radius: 5px; 
+    resize: none;
+}
+
+form input, form select {
+    padding: 5px;
+    font-size: 18px;
+}
+
+form textarea{
+    font-size: 18px;
+}
+
+a {
+    color: white;
+}
+
+/* Footer */
+footer {
+    color: white;
+    font-family: 'Cantarell', sans-serif;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+footer div{
+    font-size: 50px;
+}
+
+footer p{
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Navagation Bar */
+#navBar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #272727;
+    padding: 0%;
+    text-align: center;
+    vertical-align: 50%;
+}
+
+#navBar .nav {
+    display: inline-block;
+    background-color: #272727;
+    width: 100px;
+    height: 50px;
+}
+
+#navBar .nav:hover{
+    background-color: grey;
+    color: #272727;
+}
+
+#navBar a {
+    color: white;
+    text-decoration: none;
+    line-height: 50px;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+/* Header Info */
+#head {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#profilePicture img {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    padding: 20px;
+}
+
+#name {
+    align-self: center;
+    margin: 25px;
+    font-size: 64px;
+}
+
+#subtitle {
+    font-size: 25px;
+    color: grey;
+    align-self: center;
+}
+
+/* Main Page Content */
+#info {
+    display: flex;
+    flex-direction: column;
+}
+
+#about {
+    font-size: 46px;
+}
+
+
+
+/* Skills Formatting */
+.skill img {
+    width: 100px;
+    height: 100px;
+    float: left;
+    padding: 10px;
+}
+
+.skill{
+    padding: 10px;
+}
+
+.contact span{
+    float: left;
+    font-size: 100px;
+    padding: 10px;
+}
+
+.contact div{
+    padding: 10px;
+}
+
+.contact {
+    padding: 20px;
+}
+
+.contact textarea{
+    width: 80%;
+}
+
+.user-field {
+    display: inline-block;
+}
+
+.contact form {
+    margin: 20px;
+}
+
+#subjects {
+    font-size: 32px;
+    margin: 20px;
+}
+
+.subject, #schedule{
+    margin: 30px;
+    background-color: #272727;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.subject .header-text{
+    font-size: 24px;
+}
+
+.subject span{
+    font-weight: bold;
+    font-size: 18px;
+}
+.subject div{
+    margin: 5px;
+}
+
+#schedule #schedule-title {
+    font-size: 24px;
+}
+
+#schedule .header-text {
+    font-size: 18px;
+}
+
+#schedule div{
+    margin: 5px;
+}
+
+.project .header-text{
+    font-size: 32px;
+}
+
+.project{
+    margin: 20px;
+}
+
+.project .paragraph-text{
+    margin: 20px;
+}
+
+/* responsive */
+@media(max-width: 750px){
+    #head {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #main-container {
+        align-self: center;
+        width: 90%;
+        height: 100%;
+        background-color: #1e1e1e;
+        margin: auto;
+        border-radius: 50px;
+        margin-top: 100px; /* Add a top margin to avoid content overlay */
+    }
+
+    #content {
+        padding: 25px; 
+    }
+    
+    .subject, #schedule{
+        margin: 10px;
+    }
+}
