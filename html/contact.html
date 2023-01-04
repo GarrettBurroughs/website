@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css" id="css">
+    <link rel="stylesheet" href="../assets/css/switch.css">
     <script src="https://kit.fontawesome.com/f5a4fe8546.js"></script>
     <title>Garrett Burroughs</title>
 </head>
+
 <body>
     <!-- Navigation -->
     <div id="navBar">
@@ -15,32 +18,81 @@
             <div class="nav" id="home">
                 Home
             </div>
-        </a> 
+        </a>
         <a href="projects.html">
             <div class="nav" id="projects">
                 Projects
             </div>
-        </a> 
+        </a>
         <a href="tutoring.html">
             <div class="nav" id="tutoring">
                 Tutoring
             </div>
-        </a> 
+        </a>
         <a href="contact.html">
             <div class="nav" id="contact">
-            Contact
+                Contact
             </div>
-        </a>  
+        </a>
         <a href="skills.html">
             <div class="nav" id="skills">
                 Skills
             </div>
         </a>
+        <!-- Rounded switch -->
+        <div id="light-mode">
+            <span>Toggle light mode</span>
+            <label class="switch">
+                <input type="checkbox" id="lightButton" onclick="onClick()">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <script defer>
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+
+            if (getCookie('theme')) {
+                const theme = getCookie('theme');
+                if (theme === "light") {
+                    const css = document.getElementById("css");
+                    const button = document.getElementById("lightButton");
+                    css.href = "../assets/css/light.css";
+                    button.checked = true;
+                    console.log(button.checked);
+                }
+            }
+            function onClick() {
+                const css = document.getElementById("css");
+                const button = document.getElementById("lightButton");
+
+                if (button.checked == true) {
+                    css.href = "../assets/css/light.css";
+                    document.cookie = "theme=light"
+                } else {
+                    css.href = "../assets/css/style.css";
+                    document.cookie = "theme=dark"
+                }
+            }
+        </script>
     </div>
 
     <!-- Main Page -->
     <div id="main-container">
-        
+
         <!-- Main Info -->
         <div id="head">
             <div id="info">
@@ -76,7 +128,8 @@
                 LinkedIn
             </div>
             <div class="content paragraph-text">
-                <a href="https://www.linkedin.com/in/garrettburroughs/">https://www.linkedin.com/in/garrettburroughs/</a> 
+                <a
+                    href="https://www.linkedin.com/in/garrettburroughs/">https://www.linkedin.com/in/garrettburroughs/</a>
             </div>
         </div>
         <div class="contact">
@@ -86,7 +139,7 @@
             </div>
             <div class="content paragraph-text">
                 You can contact me right here through my website, just
-                enter your name, message, email, and hit send! I will get back to you 
+                enter your name, message, email, and hit send! I will get back to you
                 as soon as I can.
             </div>
             <form action="/message" method="post">
@@ -100,8 +153,8 @@
             </form>
         </div>
 
-        
-            
+
+
     </div>
 </body>
 <footer>
@@ -109,10 +162,12 @@
         <a href="https://www.linkedin.com/in/garrettburroughs/"><span class="fab fa-linkedin"></span></a>
         <a href="https://github.com/GarrettBurroughs"><span class="fab fa-github"></span></a>
         <a href="https://www.instagram.com/garrett.burroughs/"><span class="fab fa-instagram"></span></a>
-        <a href="https://drive.google.com/file/d/1jaBxmrsJCrzkkToLwGOW2wckZlH2AQ3Z/view"><span class="far fa-file"></span></a>
-        <p>        
-            Garrett Burroughs 2019
+        <a href="https://drive.google.com/file/d/1jaBxmrsJCrzkkToLwGOW2wckZlH2AQ3Z/view"><span
+                class="far fa-file"></span></a>
+        <p>
+            Garrett Burroughs 2021
         </p>
     </div>
 </footer>
+
 </html>

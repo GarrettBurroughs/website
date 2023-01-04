@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css" id="css">
+    <link rel="stylesheet" href="../assets/css/switch.css">
+
     <script src="https://kit.fontawesome.com/f5a4fe8546.js"></script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -13,6 +16,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <title>Garrett Burroughs</title>
 </head>
+
 <body>
     <!-- Navigation -->
     <div id="navBar">
@@ -20,27 +24,76 @@
             <div class="nav" id="home">
                 Home
             </div>
-        </a> 
+        </a>
         <a href="projects.html">
             <div class="nav" id="projects">
                 Projects
             </div>
-        </a> 
+        </a>
         <a href="tutoring.html">
             <div class="nav" id="tutoring">
                 Tutoring
             </div>
-        </a> 
+        </a>
         <a href="contact.html">
             <div class="nav" id="contact">
-            Contact
+                Contact
             </div>
-        </a>  
+        </a>
         <a href="skills.html">
             <div class="nav" id="skills">
                 Skills
             </div>
         </a>
+        <!-- Rounded switch -->
+        <div id="light-mode">
+            <span>Toggle light mode</span>
+            <label class="switch">
+                <input type="checkbox" id="lightButton" onclick="onClick()">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <script defer>
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+
+            if (getCookie('theme')) {
+                const theme = getCookie('theme');
+                if (theme === "light") {
+                    const css = document.getElementById("css");
+                    const button = document.getElementById("lightButton");
+                    css.href = "../assets/css/light.css";
+                    button.checked = true;
+                    console.log(button.checked);
+                }
+            }
+            function onClick() {
+                const css = document.getElementById("css");
+                const button = document.getElementById("lightButton");
+
+                if (button.checked == true) {
+                    css.href = "../assets/css/light.css";
+                    document.cookie = "theme=light"
+                } else {
+                    css.href = "../assets/css/style.css";
+                    document.cookie = "theme=dark"
+                }
+            }
+        </script>
     </div>
 
     <!-- Main Page -->
@@ -57,7 +110,7 @@
                     Garrett Burroughs
                 </div>
                 <div class="header-text" id="subtitle">
-                    Computer Science Engineer :)
+                    Computer Science Engineer
                 </div>
             </div>
         </div>
@@ -70,22 +123,27 @@
             <div class="header-text" id="about">
                 About Me
             </div>
-            <div class="paragraph-text" id="about-text">   
+            <div class="paragraph-text" id="about-text">
                 <p>
-                Quick note, this introduction to me is a little more informal and personal, if you are looking for a more technical list of my skills and experience, check out my <a href="skills.html">skills</a> page.
+                    Quick note, this introduction to me is a little more informal and personal, if you are looking for a
+                    more technical list of my skills and experience, check out my <a href="skills.html">skills</a> page.
                 </p>
                 <p>
-                Hey! My name is Garrett, welcome to my website. I hope by reading this, you will get an insight into who I actually am, rather than just some basic facts and information.
-                One thing that has always interested me is the ability to create things. From legos, to physics equations to computer software. The ablility to transform my 
-                ideas into a concrete product has always been something that has brought me joy. 
+                    Hey! My name is Garrett, welcome to my website. I hope by reading this, you will get an insight into
+                    who I actually am, rather than just some basic facts and information.
+                    One thing that has always interested me is the ability to create things. From legos, to physics
+                    equations to computer software. The ablility to transform my
+                    ideas into a concrete product has always been something that has brought me joy.
                 </p>
                 <p>
-                On this page, you can learn more about what I have done with all of these passions, including the projects I have made and 
-                contributed to, as well as the skills I have learned throughout my experiences.
+                    On this page, you can learn more about what I have done with all of these passions, including the
+                    projects I have made and
+                    contributed to, as well as the skills I have learned throughout my experiences.
                 </p>
                 <p>
-                I also have a passion for sharing my knowledge with others. If you wish to hire me for tutoring, or teaching, you can check out my
-                <a href="tutoring.html">tutoring page</a>. There you can also find more information abuout my experience and area of focus. 
+                    I also have a passion for sharing my knowledge with others, and a lot of experience in teaching and
+                    tutoring roles. If you wish to hire me, check out my
+                    <a href="tutoring.html">tutoring page</a>.
                 </p>
             </div>
         </div>
@@ -96,10 +154,12 @@
         <a href="https://www.linkedin.com/in/garrettburroughs/"><span class="fab fa-linkedin"></span></a>
         <a href="https://github.com/GarrettBurroughs"><span class="fab fa-github"></span></a>
         <a href="https://www.instagram.com/garrett.burroughs/"><span class="fab fa-instagram"></span></a>
-        <a href="https://drive.google.com/file/d/1jaBxmrsJCrzkkToLwGOW2wckZlH2AQ3Z/view"><span class="far fa-file"></span></a>
-        <p>        
-            Garrett Burroughs 2019
+        <a href="https://drive.google.com/file/d/1jaBxmrsJCrzkkToLwGOW2wckZlH2AQ3Z/view"><span
+                class="far fa-file"></span></a>
+        <p>
+            Garrett Burroughs 2021
         </p>
     </div>
 </footer>
+
 </html>

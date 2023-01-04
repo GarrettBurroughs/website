@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css" id="css">
+    <link rel="stylesheet" href="../assets/css/switch.css">
     <script src="https://kit.fontawesome.com/f5a4fe8546.js"></script>
     <title>Garrett Burroughs</title>
 </head>
+
 <body>
     <!-- Navigation -->
     <div id="navBar">
@@ -15,27 +18,76 @@
             <div class="nav" id="home">
                 Home
             </div>
-        </a> 
+        </a>
         <a href="projects.html">
             <div class="nav" id="projects">
                 Projects
             </div>
-        </a> 
+        </a>
         <a href="tutoring.html">
             <div class="nav" id="tutoring">
                 Tutoring
             </div>
-        </a> 
+        </a>
         <a href="contact.html">
             <div class="nav" id="contact">
-            Contact
+                Contact
             </div>
-        </a>  
+        </a>
         <a href="skills.html">
             <div class="nav" id="skills">
                 Skills
             </div>
         </a>
+        <!-- Rounded switch -->
+        <div id="light-mode">
+            <span>Toggle light mode</span>
+            <label class="switch">
+                <input type="checkbox" id="lightButton" onclick="onClick()">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <script defer>
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+
+            if (getCookie('theme')) {
+                const theme = getCookie('theme');
+                if (theme === "light") {
+                    const css = document.getElementById("css");
+                    const button = document.getElementById("lightButton");
+                    css.href = "../assets/css/light.css";
+                    button.checked = true;
+                    console.log(button.checked);
+                }
+            }
+            function onClick() {
+                const css = document.getElementById("css");
+                const button = document.getElementById("lightButton");
+
+                if (button.checked == true) {
+                    css.href = "../assets/css/light.css";
+                    document.cookie = "theme=light"
+                } else {
+                    css.href = "../assets/css/style.css";
+                    document.cookie = "theme=dark"
+                }
+            }
+        </script>
     </div>
 
     <!-- Main Page -->
@@ -52,16 +104,20 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="project">
             <div class="header-text project-title">
                 <a href="https://github.com/GarrettBurroughs/Alloy">Alloy</a>
             </div>
             <div class="paragraph-text project-description">
-                An open source FIRST robot framework to aid teams in development. The framwork is designed in a way that is very 
-                easily customizeable, while abstracting away the tedious, boilerplate code that is often found in FRC and FTC robot code. 
-                The framework is also able to be implemented with almost all robot systems that have access to motors and sensors.
-                Alloy comes built in with multiple different advanced control systems and integrations, but also allows the user to create their own 
+                An open source FIRST robot framework to aid teams in development. The framwork is designed in a way that
+                is very
+                easily customizeable, while abstracting away the tedious, boilerplate code that is often found in FRC
+                and FTC robot code.
+                The framework is also able to be implemented with almost all robot systems that have access to motors
+                and sensors.
+                Alloy comes built in with multiple different advanced control systems and integrations, but also allows
+                the user to create their own
                 utilities
             </div>
         </div>
@@ -72,7 +128,7 @@
             <div class="paragraph-text project-description">
                 An online platform that I developed during the 2018 All Star Code Summer Intensive.
                 The goal of the project was to make a new media platform that focuses on new content creators, and
-                short 30, second clips for them to show themselves off to the world. 
+                short 30, second clips for them to show themselves off to the world.
             </div>
         </div>
         <div class="project">
@@ -80,7 +136,7 @@
                 <a href="">Bloxris</a>
             </div>
             <div class="paragraph-text project-description">
-                A "Tetris" like game developed during one of my computer science classes at my highschool. 
+                A "Tetris" like game developed during one of my computer science classes at my highschool.
                 This implementation of tetris is written in the java processing enviornment and contains all
                 basic gameplay elements
             </div>
@@ -101,9 +157,9 @@
             </div>
             <div class="paragraph-text project-description">
                 A discord bot written in node.js to help with the management of osu torunaments.
-                By using discord.js and the osu!API, this project is able to capture match information from 
+                By using discord.js and the osu!API, this project is able to capture match information from
                 commands run within a discord server, and then log the match results both to the server, and an
-                external database, this case being a simple google spreadsheet. 
+                external database, this case being a simple google spreadsheet.
             </div>
         </div>
         <div class="project">
@@ -111,9 +167,9 @@
                 <a href="https://github.com/GarrettBurroughs/GeneticAlgorithmJava">Genetic Algorithm</a>
             </div>
             <div class="paragraph-text project-description">
-                A genetic algorithm implementation written in pure java. This project contains the main genetic 
-                algorithm implementation, and allows the user to create their own versions by defining the actions 
-                of a specific organism. 
+                A genetic algorithm implementation written in pure java. This project contains the main genetic
+                algorithm implementation, and allows the user to create their own versions by defining the actions
+                of a specific organism.
             </div>
         </div>
     </div>
@@ -123,11 +179,12 @@
         <a href="https://www.linkedin.com/in/garrettburroughs/"><span class="fab fa-linkedin"></span></a>
         <a href="https://github.com/GarrettBurroughs"><span class="fab fa-github"></span></a>
         <a href="https://www.instagram.com/garrett.burroughs/"><span class="fab fa-instagram"></span></a>
-        <a href="https://drive.google.com/file/d/1jaBxmrsJCrzkkToLwGOW2wckZlH2AQ3Z/view"><span class="far fa-file"></span></a>
-        <p>        
-            Garrett Burroughs 2019
+        <a href="https://drive.google.com/file/d/1jaBxmrsJCrzkkToLwGOW2wckZlH2AQ3Z/view"><span
+                class="far fa-file"></span></a>
+        <p>
+            Garrett Burroughs 2021
         </p>
     </div>
 </footer>
-</html>
 
+</html>

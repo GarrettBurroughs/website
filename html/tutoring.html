@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css" id="css">
+    <link rel="stylesheet" href="../assets/css/switch.css">
     <script src="https://kit.fontawesome.com/f5a4fe8546.js"></script>
     <title>Garrett Burroughs</title>
 </head>
+
 <body>
     <!-- Navigation -->
     <div id="navBar">
@@ -15,32 +18,81 @@
             <div class="nav" id="home">
                 Home
             </div>
-        </a> 
+        </a>
         <a href="projects.html">
             <div class="nav" id="projects">
                 Projects
             </div>
-        </a> 
+        </a>
         <a href="tutoring.html">
             <div class="nav" id="tutoring">
                 Tutoring
             </div>
-        </a> 
+        </a>
         <a href="contact.html">
             <div class="nav" id="contact">
-            Contact
+                Contact
             </div>
-        </a>  
+        </a>
         <a href="skills.html">
             <div class="nav" id="skills">
                 Skills
             </div>
         </a>
+        <!-- Rounded switch -->
+        <div id="light-mode">
+            <span>Toggle light mode</span>
+            <label class="switch">
+                <input type="checkbox" id="lightButton" onclick="onClick()">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <script defer>
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+
+            if (getCookie('theme')) {
+                const theme = getCookie('theme');
+                if (theme === "light") {
+                    const css = document.getElementById("css");
+                    const button = document.getElementById("lightButton");
+                    css.href = "../assets/css/light.css";
+                    button.checked = true;
+                    console.log(button.checked);
+                }
+            }
+            function onClick() {
+                const css = document.getElementById("css");
+                const button = document.getElementById("lightButton");
+
+                if (button.checked == true) {
+                    css.href = "../assets/css/light.css";
+                    document.cookie = "theme=light"
+                } else {
+                    css.href = "../assets/css/style.css";
+                    document.cookie = "theme=dark"
+                }
+            }
+        </script>
     </div>
 
     <!-- Main Page -->
     <div id="main-container">
-        
+
         <!-- Main Info -->
         <div id="head">
             <div id="info">
@@ -52,48 +104,67 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="header-text" id="subjects">Subjects</div>
         <div class="subject">
             <div class="header-text">Math</div>
             <div class="paragraph-text">
                 <p>
-                    Subjects that I cover include: Algebra 1, Algebra 2, Geometry, Pre-Calculus, Trigonometry, Calculus AB, Calculus BC
+                    Subjects that I cover include: Algebra 1, Algebra 2, Geometry, Pre-Calculus, Trigonometry, Calculus
+                    AB, Calculus BC
                 </p>
-                <div><span class="subject-text">Algebra 1 & 2</span>: I can cover all topics from algebra 1 and 2. Ranging from graphing, to intermediate and advanced equation solving. </div>
-                <div><span class="subject-text">Geometry</span>: I can help with solving geometric equations, writing proofs, learning theorums and postulates, and geometric problem solving</div>
-                <div><span class="subject-text">Pre-calculus & Trigonometry</span>: I can cover concepts including the unit circle, trig functions (graphing, solving, calculating), polar coordinates, limits, and more. </div>
-                <div><span class="subject-text">Calculus AB & BC</span>: Scoring a 5 on the BC calculus exam, I am comfortable helping, teaching, and explaining the entierety of the BC Calculus curriculum. & AP exam prep</div>
+                <div><span class="subject-text">Algebra 1 & 2</span>: I can cover all topics from algebra 1 and 2.
+                    Ranging from graphing, to intermediate and advanced equation solving. </div>
+                <div><span class="subject-text">Geometry</span>: I can help with solving geometric equations, writing
+                    proofs, learning theorums and postulates, and geometric problem solving</div>
+                <div><span class="subject-text">Pre-calculus & Trigonometry</span>: I can cover concepts including the
+                    unit circle, trig functions (graphing, solving, calculating), polar coordinates, limits, and more.
+                </div>
+                <div><span class="subject-text">Calculus AB & BC</span>: Scoring a 5 on the BC calculus exam, I am
+                    comfortable helping, teaching, and explaining the entierety of the BC Calculus curriculum. & AP exam
+                    prep</div>
             </div>
         </div>
         <div class="subject">
             <div class="header-text">Physics</div>
             <div class="paragraph-text">
                 <p>
-                    I  can help cover all concepts in both algebra based and calculus based AP Physics
+                    I can help cover all concepts in both algebra based and calculus based AP Physics
                 </p>
-                <div><span class="subject-text">Mechanics, Calculus Based</span>: Kinematics, work, energy, force calculation, angluar momentum, velocity, and torque, moment of inertia, rotation, harmonic motion. & AP exam prep </div>
-                <div><span class="subject-text">Electricity and Magnetism, Calculus Based</span>: Columbs law, Gauss' law, Electric field due to charge, circuits, (RC, RL) force due to a magnetic field, amperes' law & AP exam prep</div>
-                <div><span class="subject-text">Algebra Based Physics</span>: kinematics, dynamics, projectile motion, angluar motion, circuits, waves</div>
-                <div><span class="subject-text">AP exam and SAT Subject test prep</span>: Practice problems, topics review, exam tips</div>
+                <div><span class="subject-text">Mechanics, Calculus Based</span>: Kinematics, work, energy, force
+                    calculation, angluar momentum, velocity, and torque, moment of inertia, rotation, harmonic motion. &
+                    AP exam prep </div>
+                <div><span class="subject-text">Electricity and Magnetism, Calculus Based</span>: Columbs law, Gauss'
+                    law, Electric field due to charge, circuits, (RC, RL) force due to a magnetic field, amperes' law &
+                    AP exam prep</div>
+                <div><span class="subject-text">Algebra Based Physics</span>: kinematics, dynamics, projectile motion,
+                    angluar motion, circuits, waves</div>
+                <div><span class="subject-text">AP exam and SAT Subject test prep</span>: Practice problems, topics
+                    review, exam tips</div>
             </div>
         </div>
         <div class="subject">
             <div class="header-text">Computer Science</div>
             <div class="paragraph-text">
                 <p>
-                    I can teach computer science for school, personal, and professional use                     
+                    I can teach computer science for school, personal, and professional use
                 </p>
-                <div><span class="subject-text">AP Computer science</span>: AP Computer Science A and Computer Science Principles topic review, and test prep</div>
-                <div><span class="subject-text">Python</span>: Basic use of python, for everyday use, and slightly more advanced mathematical and scientific uses</div>
-                <div><span class="subject-text">Java</span>: Basic through intermediate Java concepts. Classes, interfaces, inheritacne, Object oriented programming, generic typing, lambda expressions</div>
-                <div><span class="subject-text">Javascript (& web development)</span>: the basics of frontend and backend javascript, and how to apply that knowledge to the web</div>
-                <div><span class="subject-text">Game Design</span>: Basic graphics and physics processing and game design</div>
+                <div><span class="subject-text">AP Computer science</span>: AP Computer Science A and Computer Science
+                    Principles topic review, and test prep</div>
+                <div><span class="subject-text">Python</span>: Basic use of python, for everyday use, and slightly more
+                    advanced mathematical and scientific uses</div>
+                <div><span class="subject-text">Java</span>: Basic through intermediate Java concepts. Classes,
+                    interfaces, inheritacne, Object oriented programming, generic typing, lambda expressions</div>
+                <div><span class="subject-text">Javascript (& web development)</span>: the basics of frontend and
+                    backend javascript, and how to apply that knowledge to the web</div>
+                <div><span class="subject-text">Game Design</span>: Basic graphics and physics processing and game
+                    design</div>
             </div>
         </div>
         <div id="schedule">
             <div class="header-text" id="schedule-title">Schedule</div>
-            <div class="paragraph-text">You can schedule a session with the form below. Input what subject and when you want to schedule, I will get back to you confirming, or rescheduling the session.</div>
+            <div class="paragraph-text">You can schedule a session with the form below. Input what subject and when you
+                want to schedule, I will get back to you confirming, or rescheduling the session.</div>
             <form action="/schedule" method="post">
                 <div class="header-text user-field">Name</div>
                 <input class="user-field" type="text" name="name" id="contact-name">
@@ -118,10 +189,12 @@
         <a href="https://www.linkedin.com/in/garrettburroughs/"><span class="fab fa-linkedin"></span></a>
         <a href="https://github.com/GarrettBurroughs"><span class="fab fa-github"></span></a>
         <a href="https://www.instagram.com/garrett.burroughs/"><span class="fab fa-instagram"></span></a>
-        <a href="https://drive.google.com/file/d/1jaBxmrsJCrzkkToLwGOW2wckZlH2AQ3Z/view"><span class="far fa-file"></span></a>
-        <p>        
-            Garrett Burroughs 2019
+        <a href="https://drive.google.com/file/d/1jaBxmrsJCrzkkToLwGOW2wckZlH2AQ3Z/view"><span
+                class="far fa-file"></span></a>
+        <p>
+            Garrett Burroughs 2021
         </p>
     </div>
 </footer>
+
 </html>

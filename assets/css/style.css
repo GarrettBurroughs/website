@@ -39,6 +39,8 @@ body {
     margin: auto;
     border-radius: 50px;
     margin-top: 30px; /* Add a top margin to avoid content overlay */
+    padding: 5px;
+
 }
 
 form input, form textarea, form select{
@@ -89,10 +91,13 @@ footer p{
     padding: 0%;
     text-align: center;
     vertical-align: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #navBar .nav {
-    display: inline-block;
+    display: block;
     background-color: #272727;
     width: 100px;
     height: 50px;
@@ -236,6 +241,12 @@ footer p{
 
 /* responsive */
 @media(max-width: 750px){
+    #navBar{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 4px;
+    }
     #head {
         display: flex;
         flex-direction: column;
@@ -250,7 +261,7 @@ footer p{
         background-color: #1e1e1e;
         margin: auto;
         border-radius: 50px;
-        margin-top: 100px; /* Add a top margin to avoid content overlay */
+        margin-top: 300px; /* Add a top margin to avoid content overlay */
     }
 
     #content {
